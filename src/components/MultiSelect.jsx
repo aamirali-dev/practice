@@ -1,22 +1,29 @@
 import React, { useState } from "react";
-import {Multiselect as MSelect} from 'multiselect-react-dropdown';
+import { Multiselect as MSelect } from "multiselect-react-dropdown";
 
-
-const MultiSelect = ({options, setSelectedOptions, placeholder}) => {
-
+const MultiSelect = ({ options, setSelectedOptions, placeholder }) => {
   const chip_style = {
-    chips : {
-      display: 'none',
-    }
-  }
+    chips: {
+      display: "none",
+    },
+    searchBox: {
+      borderRadius: "0",
+    },
+    optionContainer: {
+      borderRadius: "0",
+    },
+    option: {
+      accentColor: "blue",
+    },
+  };
   const handleSelect = (selectedList, _) => {
     setSelectedOptions(selectedList);
   };
   const handleRemove = (selectedList, _) => {
-    setSelectedOptions(selectedList)
-  }
+    setSelectedOptions(selectedList);
+  };
   return (
-    <div style={{minWidth: '160px', maxWidth: '160px'}}>
+    <div style={{ minWidth: "200px", maxWidth: "160px" }}>
       <MSelect
         options={options}
         placeholder={placeholder}
