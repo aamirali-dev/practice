@@ -15,9 +15,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-multi-select-component": "^4.3.4",
-    "react-select": "^5.8.0"
+    "react-select": "^5.8.0",
+    "react-social-login-buttons": "^3.9.1",
+    "reactjs-social-login": "^2.6.3"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
@@ -25,6 +28,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vite-plugin-svgr": "^4.2.0",
+    "vite-svg-loader": "^5.1.0"
   }
 }

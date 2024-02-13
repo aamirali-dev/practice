@@ -1,0 +1,48 @@
+.storybook-button {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    border: 0;
+    border-radius: 3em;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1;
+    padding: 4px 12px;
+    font-size: 13px;
+  }
+  .storybook-button--primary {
+    color: white;
+    background-color: #1ea7fd;
+  }
+
+  .pinterest-btn {
+    display: block;
+    border: 0px;
+    border-radius: 3px;
+    box-shadow: rgb(0 0 0 / 50%) 0px 1px 2px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 19px;
+    margin: 5px;
+    overflow: hidden;
+    padding: 0px 10px;
+    user-select: none;
+    height: 50px;
+    background: rgb(255, 255, 255);
+  }
+  
+  .pinterest-btn .content {
+    align-items: center;
+    display: flex;
+    height: 100%;
+  }
+  
+  .pinterest-btn .txt {
+    margin-left: 10px;
+  }
+  
+  .pinterest-btn .icon {
+    display: flex;
+    justify-content: center;
+    min-width: 26px;
+  }
+  
