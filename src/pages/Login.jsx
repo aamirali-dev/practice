@@ -1,64 +1,68 @@
-import React, { useState, useCallback } from 'react'
-import { User } from './User'
-import PinterestLogo from '../assets/pinterest.svg?react'
-import TiktokLogo from '../assets/tiktok.svg?react'
+import React, { useState, useCallback } from "react";
+import { User } from "./User";
+import PinterestLogo from "../assets/pinterest.svg?react";
+import TiktokLogo from "../assets/tiktok.svg?react";
 import {
-    LoginSocialGoogle,
-    LoginSocialAmazon,
-    LoginSocialFacebook,
-    LoginSocialGithub,
-    LoginSocialInstagram,
-    LoginSocialLinkedin,
-    LoginSocialMicrosoft,
-    LoginSocialPinterest,
-    LoginSocialTwitter,
-    LoginSocialApple,
-    LoginSocialTiktok,
-} from 'reactjs-social-login'
+  LoginSocialGoogle,
+  LoginSocialAmazon,
+  LoginSocialFacebook,
+  LoginSocialGithub,
+  LoginSocialInstagram,
+  LoginSocialLinkedin,
+  LoginSocialMicrosoft,
+  LoginSocialPinterest,
+  LoginSocialTwitter,
+  LoginSocialApple,
+  LoginSocialTiktok,
+} from "reactjs-social-login";
 
 import {
-    FacebookLoginButton,
-    GoogleLoginButton,
-    GithubLoginButton,
-    AmazonLoginButton,
-    InstagramLoginButton,
-    LinkedInLoginButton,
-    MicrosoftLoginButton,
-    TwitterLoginButton,
-    AppleLoginButton,
-} from 'react-social-login-buttons'
+  FacebookLoginButton,
+  GoogleLoginButton,
+  GithubLoginButton,
+  AmazonLoginButton,
+  InstagramLoginButton,
+  LinkedInLoginButton,
+  MicrosoftLoginButton,
+  TwitterLoginButton,
+  AppleLoginButton,
+} from "react-social-login-buttons";
 
 const Login = () => {
-    const REDIRECT_URI = window.location.href;
-    const [provider, setProvider] = useState('')
-  const [profile, setProfile] = useState(null)
+  const REDIRECT_URI = window.location.href;
+  const [provider, setProvider] = useState("");
+  const [profile, setProfile] = useState(null);
   const onLoginStart = useCallback(() => {
-    alert('login start')
-  }, [])
+    alert("login start");
+  }, []);
 
   const onLogoutSuccess = useCallback(() => {
-    setProfile(null)
-    setProvider('')
-    alert('logout success')
-  }, [])
+    setProfile(null);
+    setProvider("");
+    alert("logout success");
+  }, []);
 
   return (
     <>
       {provider && profile ? (
-        <User provider={provider} profile={profile} onLogout={onLogoutSuccess} />
+        <User
+          provider={provider}
+          profile={profile}
+          onLogout={onLogoutSuccess}
+        />
       ) : (
-        <div className={`App ${provider && profile ? 'hide' : ''}`}>
-          <h1 className='title'>ReactJS Social Login</h1>
+        <div className={`App ${provider && profile ? "hide" : ""}`}>
+          <h1 className="title">ReactJS Social Login</h1>
           <LoginSocialFacebook
             isOnlyGetToken
-            appId={'1397673097540373'}
+            appId={"1113740629967013"}
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
-              setProvider(provider)
-              setProfile(data)
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
           >
             <FacebookLoginButton />
@@ -66,16 +70,18 @@ const Login = () => {
 
           <LoginSocialGoogle
             isOnlyGetToken
-            client_id={'992859461740-2ivk2d55bg3v7kckb1nm1rkd1fb6dpgb.apps.googleusercontent.com'}
+            client_id={
+              "992859461740-2ivk2d55bg3v7kckb1nm1rkd1fb6dpgb.apps.googleusercontent.com"
+            }
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
-              console.log(provider)
-              console.log(data)
-              setProvider(provider)
-              setProfile(data)
+              console.log(provider);
+              console.log(data);
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
             redirect_uri={REDIRECT_URI}
           >
@@ -83,15 +89,15 @@ const Login = () => {
           </LoginSocialGoogle>
 
           <LoginSocialApple
-            client_id={''}
-            scope={'name email'}
+            client_id={""}
+            scope={"name email"}
             redirect_uri={REDIRECT_URI}
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
               setProvider(provider);
               setProfile(data);
             }}
-            onReject={err => {
+            onReject={(err) => {
               console.log(err);
             }}
           >
@@ -100,14 +106,16 @@ const Login = () => {
 
           <LoginSocialAmazon
             isOnlyGetToken
-            client_id={'amzn1.application-oa2-client.6e9ad5a36dc64c10aa89c8a645d45fae'}
+            client_id={
+              "amzn1.application-oa2-client.6e9ad5a36dc64c10aa89c8a645d45fae"
+            }
             redirect_uri={REDIRECT_URI}
             onResolve={({ provider, data }) => {
-              setProvider(provider)
-              setProfile(data)
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
             onLoginStart={onLoginStart}
           >
@@ -116,16 +124,16 @@ const Login = () => {
 
           <LoginSocialInstagram
             isOnlyGetToken
-            client_id={''}
-            client_secret={''}
+            client_id={""}
+            client_secret={""}
             redirect_uri={REDIRECT_URI}
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
-              setProvider(provider)
-              setProfile(data)
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
           >
             <InstagramLoginButton />
@@ -133,15 +141,15 @@ const Login = () => {
 
           <LoginSocialMicrosoft
             isOnlyGetToken
-            client_id={''}
+            client_id={"9d1c0916-d921-47d5-9743-bfe3b9a70027"}
             redirect_uri={REDIRECT_URI}
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
-              setProvider(provider)
-              setProfile(data)
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
           >
             <MicrosoftLoginButton />
@@ -149,17 +157,17 @@ const Login = () => {
 
           <LoginSocialLinkedin
             isOnlyGetToken
-            client_id='77au4adqzx6wln'
-            // client_secret='VkHAmIlFOmfQGb0O'
+            client_id="77au4adqzx6wln"
+            client_secret="VkHAmIlFOmfQGb0O"
             redirect_uri={REDIRECT_URI}
             onLoginStart={onLoginStart}
-            scope='profile'
+            scope="profile"
             onResolve={({ provider, data }) => {
-              setProvider(provider)
-              setProfile(data)
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
           >
             <LinkedInLoginButton />
@@ -167,16 +175,16 @@ const Login = () => {
 
           <LoginSocialGithub
             isOnlyGetToken
-            client_id={'bb2532682aa45d456b50'}
-            client_secret={'5bc99b89575267a3477a5e4cd85b6cff84f0a70d'}
+            client_id={"bb2532682aa45d456b50"}
+            client_secret={"5bc99b89575267a3477a5e4cd85b6cff84f0a70d"}
             redirect_uri={REDIRECT_URI}
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
-              setProvider(provider)
-              setProfile(data)
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
           >
             <GithubLoginButton />
@@ -184,46 +192,46 @@ const Login = () => {
 
           <LoginSocialPinterest
             isOnlyGetToken
-            client_id={''}
-            client_secret={''}
+            client_id={""}
+            client_secret={""}
             redirect_uri={REDIRECT_URI}
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
-              setProvider(provider)
-              setProfile(data)
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
-            className='pinterest-btn'
+            className="pinterest-btn"
           >
-            <div className='content'>
-              <div className='icon'>
-              <PinterestLogo />
+            <div className="content">
+              <div className="icon">
+                <PinterestLogo />
               </div>
-              <span className='txt'>Login With Pinterest</span>
+              <span className="txt">Login With Pinterest</span>
             </div>
           </LoginSocialPinterest>
 
           <LoginSocialTwitter
             isOnlyGetToken
-            client_id={''}
+            client_id={""}
             redirect_uri={REDIRECT_URI}
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
-              setProvider(provider)
-              setProfile(data)
+              setProvider(provider);
+              setProfile(data);
             }}
             onReject={(err) => {
-              console.log(err)
+              console.log(err);
             }}
           >
             <TwitterLoginButton />
           </LoginSocialTwitter>
 
           <LoginSocialTiktok
-            client_key={''}
-            redirect_uri={REDIRECT_URI}
+            client_key={"awswjt4c4hj51hs0"}
+            redirect_uri={"https://aamirali-dev.github.io"}
             onLoginStart={onLoginStart}
             onResolve={({ provider, data }) => {
               setProvider(provider);
@@ -244,7 +252,7 @@ const Login = () => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
